@@ -11,6 +11,14 @@
 |
 */
 
+$factory->define(App\Message::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'message' => $faker->paragraph,
+    ];
+});
+
+
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,

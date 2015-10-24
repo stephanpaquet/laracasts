@@ -28,5 +28,24 @@ php artisan make:model Message -m
 
 ### Installation de sqlite
 sudo apt-get install php5-sqlite
+```bash
 sudo apache2ctl restart
+```
+
+### Create dummy datas
+```php
+$factory->define(App\Message::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'message' => $faker->paragraph,
+    ];
+});
+```
+
+```bash
+php artisan tinker
+
+factory('App\Message', 10)->create();
+
+factory(App\Message::class, 10)->create();
 ```

@@ -1,4 +1,8 @@
 <?php
+get('guestbook', function () {
+    return view('guestbook');
+});
+
 
 // get all messages
 get('api/messages', function () {
