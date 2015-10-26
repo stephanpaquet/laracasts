@@ -1,3 +1,4 @@
+
 # Laravel and Vue
 Published on June 3rd, 2015 • Intermediate
 
@@ -48,4 +49,15 @@ php artisan tinker
 factory('App\Message', 10)->create();
 
 factory(App\Message::class, 10)->create();
+```
+
+### Clean up messages
+```
+\App\Message::truncate();
+```
+
+### Deprecated version 1
+voir: https://github.com/vuejs/vue/releases
+```
+v-repeat has been deprecated in favor of v-for.
 ```
