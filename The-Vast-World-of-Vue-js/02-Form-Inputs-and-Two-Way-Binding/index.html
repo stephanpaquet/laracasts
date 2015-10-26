@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vue.js Learning</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+        <style media="screen">
+            body {
+                margin: 2em 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="demo" class="container">
+            <input type="text" v-model="name" />
+
+            <hr>
+
+            <pre>
+                {{ $data | json }}
+            </pre>
+        </div>
+
+        <script src="bower_components/vue/dist/vue.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
