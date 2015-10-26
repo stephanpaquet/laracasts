@@ -3,7 +3,8 @@ var demoVue = new Vue({
     el: '#demo',
 
     data: {
-        name: 'Foobar'
+        name: 'Foobar',
+        checked: false
     },
 
     ready: function () {

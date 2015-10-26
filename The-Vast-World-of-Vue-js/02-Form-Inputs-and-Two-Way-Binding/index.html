@@ -13,7 +13,18 @@
     </head>
     <body>
         <div id="demo" class="container">
-            <input type="text" v-model="name" />
+            <div class="form-group">
+                 <label for="name">Name</label>
+                 <input id="name" type="text" v-model="name" />
+             </div>
+
+             <div class="form-group">
+                    <div class="checkbox">
+                    <label for="my-checkbox">
+                        <input id="my-checkbox" name="my-checkbox" type="checkbox" v-model="checked"> {{ checked }}
+                    </label>
+               </div>
+           </div>
 
             <hr>
 
