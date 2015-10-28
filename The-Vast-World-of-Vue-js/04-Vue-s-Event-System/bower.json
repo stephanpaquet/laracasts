@@ -1,0 +1,23 @@
+{
+  "name": "02-Form-Inputs-and-Two-Way-Binding",
+  "homepage": "https://github.com/stephanpaquet/laracasts",
+  "authors": [
+    "spaquet <stephan.paquet@duproprio.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "~0.12.16",
+    "vue-resource": "~0.1.16",
+    "bootstrap": "~3.3.5"
+  }
+}
