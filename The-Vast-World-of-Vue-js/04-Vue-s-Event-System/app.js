@@ -9,12 +9,15 @@ var demoVue = new Vue({
 
     methods: {
         onKeyUp: function (e) {
+            "use strict";
+
             this.lastKeyUp = e.which;
-            console.log(e);
         },
-        onBlur: function (e) {
+
+        onBlur: function () {
+            "use strict";
+
             this.hasBeenBlur = true;
-            console.log(e);
         }
     }
 });

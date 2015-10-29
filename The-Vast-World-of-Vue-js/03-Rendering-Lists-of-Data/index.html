@@ -17,6 +17,8 @@
                 <li v-repeat="names">{{ $value }}</li>
             </ul>
 
+            <input type="text" name="name" placeholder="Add a new name" v-model="newName" v-on="blur: addName">
+
             <hr>
 
             <ul>
