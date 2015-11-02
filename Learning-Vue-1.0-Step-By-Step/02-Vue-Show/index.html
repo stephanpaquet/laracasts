@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Learning Vue 1.0: Step By Step</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
+        <style media="screen">
+            body {
+                margin: 2em 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app" class="container">
+            <div class="form-group">
+                <label class="text-danger" v-show="! message">
+                    You must enter a message
+                </label>
+
+                <textarea class="form-control" name="name" rows="8" cols="40" v-model="message"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" name="button" role="button" class="btn btn-primary" v-bind:disabled="! message">
+                    Send message
+                </button>
+            </div>
+
+            <hr>
+
+            <pre>
+                {{ $data | json }}
+            </pre>
+        </div>
+
+        <script src="bower_components/vue/dist/vue.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
