@@ -3,13 +3,21 @@
     <head>
         <meta charset="utf-8">
         <title>Learning Vue 1.0: Step By Step</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
+        <style media="screen">
+            body {
+                margin: 2em 0;
+            }
+        </style>
     </head>
+
     <body>
-        <div id="app">
+        <div id="app" class="container">
             <h1>{{ message }}</h1>
 
             <input type="text" v-model="message">
 
+            <hr>
             <pre>
                 {{ $data | json }}
             </pre>
