@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Learning Vue 1.0: Step By Step</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
+        <style media="screen">
+            body {
+                margin: 2em 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app" class="container">
+            <form class="" action="done.html" method="post" v-on:submit.prevent="handleIt">
+
+                <button type="submit">
+                    Submit me !
+                </button>
+            </form>
+
+            <hr>
+
+            <button type="submit" @click="updateCount">
+                Increment counter: {{ count }}
+            </button>
+
+            <hr>
+
+            <pre>
+                {{ $data | json }}
+            </pre>
+        </div>
+
+        <script src="bower_components/vue/dist/vue.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
