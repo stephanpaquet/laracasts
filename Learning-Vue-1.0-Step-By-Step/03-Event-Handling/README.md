@@ -27,6 +27,7 @@ v-on:submit="handleIt"
 
 methods: {
     handleIt: function (e) {
+        'e' is the native DOM event
         e.preventDefault();
     }
 }
