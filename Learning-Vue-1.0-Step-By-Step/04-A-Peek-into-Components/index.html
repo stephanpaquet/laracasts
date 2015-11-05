@@ -13,9 +13,23 @@
 
     <body>
         <div id="app" class="container">
-            <h1>{{ message }}</h1>
 
-            <input type="text" v-model="message">
+            <hello-world></hello-world>
+            <hello-world></hello-world>
+            <hello-world></hello-world>
+
+            <hr>
+            <template id="counter-template">
+                <h1>{{ subject }}</h1>
+                <button @click="updateCounter">{{ count }}</button>
+            </template>
+
+            <counter-with-template subject="Likes"></counter-with-template>
+            <counter-with-template subject="Dislikes"></counter-with-template>
+
+            <hr>
+
+            <counter></counter>
 
             <hr>
             <pre>

@@ -18,6 +18,5 @@ var appVue = new Vue({
 
             this.count += 1;
         }
-
     }
 });
