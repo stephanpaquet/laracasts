@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Learning Vue 1.0: Step By Step</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
+        <style media="screen">
+            body {
+                margin: 2em 0;
+            }
+            .plan {
+                padding: 0.5em 0;
+            }
+
+            .plan-name {
+                display: inline-block;
+                width: 6em;
+            }
+
+            .plan-price {
+                display: inline-block;
+                width: 6em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app" class="container">
+
+            <div v-for="plan in plans">
+                <plan :plan="plan" :active.sync="active"></plan> <!-- : is a shortcut of binding an attribute -->
+            </div>
+
+            <div v-for="plan in plans">
+                <plan :plan="plan" :active.sync="active"></plan> <!-- : is a shortcut of binding an attribute -->
+            </div>
+
+            <template id="plan-template">
+                <div class="plan">
+
+                    <span class="plan-name"> {{ plan.name }}</span>
+                    <span class="plan-price"> {{ plan.price }} / month</span>
+                    <button type="button" name="button" @click="setActivePlan" v-show="plan.name !== active.name">
+                        {{ isUpgrade ? 'Upgrade' : 'Downgrade' }}
+                    </button>
+
+                    <span v-else>
+                        Selected
+                    </span>
+                </div>
+
+            </template>
+
+            <hr>
+            <pre>
+                {{ $data | json }}
+            </pre>
+
+        </div>
+
+        <script src="bower_components/vue/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
