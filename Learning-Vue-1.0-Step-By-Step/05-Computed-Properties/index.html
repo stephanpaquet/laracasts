@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Learning Vue 1.0: Step By Step</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
+        <style media="screen">
+            body {
+                margin: 2em 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app" class="container">
+
+            <h1>Skill: {{ skill }}</h1>
+
+            <input type="number" name="name" value="{{ points }}" v-model="points">
+            <hr>
+
+            <pre>
+                {{ $data | json }}
+            </pre>
+        </div>
+
+        <div id="app-watch" class="container">
+
+            <h1>{{ first }} {{ last }} <small>({{ fullName }})</small></h1>
+
+            <input type="text" name="first" value="{{ first }}" v-model="first">
+            <input type="text" name="last" value="{{ last }}" v-model="last">
+            <hr>
+
+            <pre>
+                {{ $data | json }}
+            </pre>
+        </div>
+
+        <div id="app-computed" class="container">
+
+            <h1>{{ first }} {{ last }} <small>({{ fullName }})</small></h1>
+
+            <input type="text" name="first" value="{{ first }}" v-model="first">
+            <input type="text" name="last" value="{{ last }}" v-model="last">
+            <hr>
+
+            <pre>
+                {{ $data | json }}
+            </pre>
+        </div>
+
+        <script src="bower_components/vue/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

@@ -1,6 +1,6 @@
-#  Event Handling
+# Event Handling
 
-Published on October 28th, 2015 ? beginner
+Published on October 28th, 2015
 Who about basic event handling? When a user clicks a button, or submits a form, or presses a key. How do we manage these common operations with Vue? Once again, it's a breeze!
 
 Before 1.0
