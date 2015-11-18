@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Learning Vue 1.0: Step By Step</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
+        <style media="screen">
+            body {
+                margin: 2em 0;
+            }
+            .completed {
+                text-decoration: line-through;;
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app" class="container">
+            <ul>
+                <li :class="{ 'completed' : task.completed }"
+                    v-for="task in tasks"
+                    @click="toggleCompletedFor(task)"
+                    >
+                        {{ task.body }}
+                </li>
+            </ul>
+
+            <hr>
+
+            <pre>
+                {{ $data | json }}
+            </pre>
+
+        </div>
+
+        <script src="bower_components/vue/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
