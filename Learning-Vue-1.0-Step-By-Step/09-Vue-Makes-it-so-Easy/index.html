@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Learning Vue 1.0: Step By Step</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
+        <style media="screen">
+            body {
+                margin: 2em 0;
+            }
+            .completed {
+                text-decoration: line-through;;
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app" class="container">
+
+            <tasks :list="tasks"></tasks>
+            <tasks :list="[{body: 'do something', completed: false}, {body: 'do another task', completed: false}]"></tasks>
+
+            <hr>
+
+            <pre>
+                {{ $data | json }}
+            </pre>
+
+        </div>
+
+        <template id="tasks-template">
+            <h1>
+                My tasks
+                    <span v-show="remaining">({{ remaining }} / {{ list.length }})</span>
+                </h1>
+            <ul v-show="list.length">
+                <li :class="{ 'completed' : task.completed }"
+                    v-for="task in list"
+                    @click="toggleCompletedFor(task)"
+                    >
+                        {{ task.body }}
+                        <strong @click="deleteTask(task)">x</strong>
+                </li>
+            </ul>
+            <p v-else>
+                No task yet!
+            </p>
+            <button v-show="list.length" @click="clearCompleted()">Clear completed</button>
+        </template>
+
+        <script src="bower_components/vue/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
