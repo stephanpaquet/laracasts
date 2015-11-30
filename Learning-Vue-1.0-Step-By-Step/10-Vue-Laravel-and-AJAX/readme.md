@@ -10,6 +10,13 @@ php artisan serve
 ```
 [http://localhost:8000/](http://localhost:8000/)
 
+### Switch to sqlite
+changer le Db Connection pour sqllite dans le ficher
+config/database.php
+
+```bash
+touch storage/database.sqlite
+```
 
 ```bash
 php artisan make:model Task -m
@@ -17,4 +24,11 @@ php artisan make:model Task -m
 ```
 
 ### Creation du model et de la migration
+```bash
 php artisan make:model Task -m
+```
+
+### Migrate it
+```bash
+php artisan migrate
+```
