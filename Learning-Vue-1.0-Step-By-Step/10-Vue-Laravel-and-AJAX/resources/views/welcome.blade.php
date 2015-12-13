@@ -3,43 +3,46 @@
     <head>
         <title>Laravel</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <style media="screen">
             body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
+                margin: 5em 0;
             }
         </style>
     </head>
     <body>
         <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
+
+
+            <tasks list="{{ json_encode($tasks) }}"></list>
+
+            {{-- With Blade
+            <h1>My tasks</h1>
+            <ul class="list-group">
+                @foreach ($tasks as $task)
+                    <li class="list-group-item">
+                        {{ $task->body}}
+                    </li>
+                @endforeach
+            </ul>
+            --}}
+
         </div>
+
+        <template id="tasks-template">
+            <h1>My tasks</h1>
+
+            <ul class="list-group">
+                <li class="list-group-item clearfix" v-for="task in list">
+                    @{{ task.body}}
+
+                    <button class="btn btn-default pull-right" @click="deleteTask(task)"> X </button>
+                </li>
+            </ul>
+        </template>
+
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.11/vue.js"></script>
+        <script src="/js/main.js" type="text/javascript"></script>
     </body>
 </html>

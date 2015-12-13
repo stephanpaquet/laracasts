@@ -18,11 +18,6 @@ config/database.php
 touch storage/database.sqlite
 ```
 
-```bash
-php artisan make:model Task -m
-
-```
-
 ### Creation du model et de la migration
 ```bash
 php artisan make:model Task -m
@@ -31,4 +26,11 @@ php artisan make:model Task -m
 ### Migrate it
 ```bash
 php artisan migrate
+```
+### Création du feeder
+dans le fichier database/factories/ModelFactory.php
+
+```bash
+php artisan tinker
+>>> factory('App\Task', 10)->create();
 ```
