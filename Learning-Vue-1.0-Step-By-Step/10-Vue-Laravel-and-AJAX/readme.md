@@ -27,10 +27,17 @@ php artisan make:model Task -m
 ```bash
 php artisan migrate
 ```
+
 ### Création du feeder
 dans le fichier database/factories/ModelFactory.php
 
 ```bash
 php artisan tinker
 >>> factory('App\Task', 10)->create();
+```
+
+### Nouveau git clone
+```bash
+cp .env.example .env
+php artisan key:generate
 ```
