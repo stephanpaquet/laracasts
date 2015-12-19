@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercice #1</title>
+    </head>
+    <body>
+        <alert>
+            <strong>General!</strong> Please fill this form.
+        </alert>
+
+        <alert type="success">
+            <strong>Success!</strong> Your account has been updated.
+        </alert>
+
+        <alert type="error">
+            <strong>Error!</strong> Your account has not been updated.
+        </alert>
+
+        <alert type="warning">
+            <strong>Warning!</strong> Your account is not activated.
+        </alert>
+
+        <template id="alert-template">
+            <style media="screen">
+                body {
+                    font-size: 12px;
+                }
+                .Alert {
+                    position: relative;
+                    background-color: #ddd;
+                    border: 1 px #bbb;
+                    padding: 1em;
+                    margin-bottom: .5em;
+                }
+                .Alert--success {
+                    background-color: #00AA00;
+                    border: 1 px #009900;
+                }
+                .Alert--warning {
+                    background-color: orange;
+                    border: 1 px #009900;
+                }
+
+                .Alert--error {
+                    background-color: #aa0000;
+                    border: 1 px #900000;
+                    color: #FFFFFF;
+                }
+                .Alert__close {
+                    position: absolute;
+                    top: .2em;
+                    right: .7em;
+                    font-weight: bold;
+                    cursor: pointer;
+                    font-size: 2em;
+
+                }
+            </style>
+
+            <!-- pourrais être :class="['Alert', type == 'success' ? 'Alert--success' : '']" -->
+
+            <div :class="alertClasses" v-show="show">
+                <slot></slot>
+                <span class="Alert__close" @click="show = false">x</span>
+            </div>
+        </template>
+
+        <script src="node_modules/vue/dist/vue.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
