@@ -1,8 +1,37 @@
-# 12. Component Exercise
+# 11. Vue Resource
 
-Published on Nov. 30th 2015
+Published on Nov. 25th 2015
 
-It's important to give yourself little exercises, to ensure that all of this education is embedding itself into your workflow. Let's build an alert component from scratch.
+If your only need for jQuery is to perform AJAX requests, then, instead, you should use Vue's [resource plugin](https://github.com/vuejs/vue-resource).
 
-## Python server
-python -m SimpleHTTPServer 8000
+```javascript
+// http://localhost:8000/api/tasks
+var resource = this.$resource('api/tasks/:id');
+
+resource.get({}, function  (tasks) {
+    this.list = tasks;
+    console.log(tasks);
+}.bind(this));
+```
+
+```javascript
+// http://localhost:8000/api/tasks/5
+var resource = this.$resource('api/tasks/:id');
+
+resource.get({'id': 5}, function  (tasks) {
+    this.list = tasks;
+    console.log(tasks);
+}.bind(this));
+```
+
+
+```javascript
+// Request URL:http://localhost:8000/api/tasks/5
+// Request Method:PUT
+var resource = this.$resource('api/tasks/:id');
+
+resource.update({'id': 5}, {'body': 'Updated task body'}, function  (tasks) {
+    this.list = tasks;
+    console.log(tasks);
+}.bind(this));
+```
