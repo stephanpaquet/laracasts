@@ -14,7 +14,7 @@
         <div class="container">
 
 
-            <tasks></list>
+            <tasks></tasks>
 
             {{-- With Blade
             <h1>My tasks</h1>

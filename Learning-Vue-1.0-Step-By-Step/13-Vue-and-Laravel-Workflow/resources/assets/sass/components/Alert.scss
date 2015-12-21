@@ -1,0 +1,32 @@
+body {
+    font-size: 12px;
+}
+.Alert {
+    position: relative;
+    background-color: #ddd;
+    border: 1 px #bbb;
+    padding: 1em;
+    margin-bottom: .5em;
+}
+.Alert--success {
+    background-color: #00AA00;
+    border: 1 px #009900;
+}
+.Alert--warning {
+    background-color: orange;
+    border: 1 px #009900;
+}
+
+.Alert--error {
+    background-color: #aa0000;
+    border: 1 px #900000;
+    color: #FFFFFF;
+}
+.Alert__close {
+    position: absolute;
+    top: .2em;
+    right: .7em;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 2em;
+}
