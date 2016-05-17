@@ -1,0 +1,16 @@
+{
+  "name": "do-you-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsx-transform": "^2.3.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
+  }
+}
