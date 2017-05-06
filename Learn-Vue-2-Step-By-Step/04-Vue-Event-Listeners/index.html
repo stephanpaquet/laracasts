@@ -2,31 +2,22 @@
 <html>
 	<head>
 		<title></title>
-		<style type="text/css">
-			.color-red {
-				color: #FF0000;
-			}
-			.is-loading {
-				background-color: red;
-			}
-		</style>
 	</head>
 
 	<body>
 
 		<div id="root">
-		<h2 :class="{'is-loading': isLoading}">
-			Hello World 2 !
-		</h2>
-		<h1 :class="className">
-			Hello World !
-		</h1>
-		<button @click="toggleClass">
-			toggle heading H2 class
-		</button>
-			<button :title="title">
-				Hover over me
+			<ul>
+				<li v-for="name in names">{{ name }}</li>
+			</ul>
+
+			<input id="input" type="text" v-model="newName">
+			<button @click="addName">
+				Add name
 			</button>
+
+				<hr>
+			<pre>{{ $data }}</pre>
 		</div>
 
 		<script src="https://unpkg.com/vue@2.3.2" ></script>		
@@ -34,15 +25,33 @@
 			var app = new Vue({
 				el: '#root',
 				data: {
-					isLoading: false,
-					className: 'color-red',
-					title: 'Now the title is being set through JavaScript.'
+					newName: '',
+					names: [
+						'Joe',
+						'Mary',
+						'Jane',
+						'Jack'
+					]
 				},
+
 				methods: {
-					toggleClass() {
-						this.isLoading = !this.isLoading;
+					addName() {
+						this.names.push(this.newName);
+
+						this.newName = ''
 					}
-				} 
+				},
+
+				mounted() {
+					// document.querySelector("#button").addEventListener('click', () => {
+					// 	let name = document.querySelector('#input');
+
+					// 	app.names.push(name.value);
+
+					// 	name.value = '';
+					// });
+
+				}
 			});
 		</script>
 	</body>

@@ -2,53 +2,56 @@
 <html>
 	<head>
 		<title></title>
+		<style type="text/css">
+			.color-red {
+				color: #FF0000;
+			}
+			.is-loading {
+				background-color: red;
+			}
+			hr {
+				margin: 2em 0;
+			} 
+		</style>
 	</head>
 
 	<body>
 
 		<div id="root">
-			<ul>
-				<li v-for="name in names">{{ name }}</li>
-			</ul>
-
-			<input id="input" type="text" v-model="newName">
-			<button @click="addName" id="button">
-				Add name
+			<h2 :class="{'is-loading': isLoading}">
+				Hello World 2 !
+			</h2>
+			<h1 :class="className">
+				Hello World !
+			</h1>
+			<button @click="toggleClass">
+				toggle heading H2 class
 			</button>
+				<button :title="title">
+					Hover over me
+				</button>
+			<hr>
+		  	<button @click="disabled = !disabled">Toggle Enable</button>
+		  	<input type="text" :disabled="disabled">
+			<hr>
+			<pre>{{ $data }}</pre>
 		</div>
 
 		<script src="https://unpkg.com/vue@2.3.2" ></script>		
 		<script>
-			var app = new Vue({
+			new Vue({
 				el: '#root',
 				data: {
-					newName: '',
-					names: [
-						'Joe',
-						'Mary',
-						'Jane',
-						'Jack'
-					]
+					isLoading: false,
+					disabled: false,
+					className: 'color-red',
+					title: 'Now the title is being set through JavaScript.'
 				},
-
 				methods: {
-					addName() {
-						this.names.push(this.newName);
-
-						this.newName = '';
+					toggleClass() {
+						this.isLoading = !this.isLoading;
 					}
-				},
-
-				mounted() {
-					// document.querySelector("#button").addEventListener('click', () => {
-					// 	let name = document.querySelector('#input');
-
-					// 	app.names.push(name.value);
-
-					// 	name.value = '';
-					// });
-
-				}
+				} 
 			});
 		</script>
 	</body>
