@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		
+	</head>
+
+	<body>
+
+		<div id="root">
+			<h1 v-text="new Date()"></h1>
+			<h2>
+				{{ message.split('').reverse().join('') }}
+			</h2>
+			<h3>
+				{{ reverseMesssage }}
+			</h3>
+
+			<h4>All tasks</h4>
+			<ul>
+				<li v-for="task in tasks">
+					{{ task.description }}
+				</li>
+			</ul>
+
+			<h4>Incomplete Tasks</h4>
+			<ul>
+				<li v-for="task in incompleteTasks">
+					{{ task.description }}
+				</li>
+			</ul>
+
+
+			<h4>Complete Tasks</h4>
+			<ul>
+				<li v-for="task in completeTasks">
+					{{ task.description }}
+				</li>
+			</ul>
+			<hr>
+			<pre>{{ $data }}</pre>
+		</div>
+
+		<script src="https://unpkg.com/vue@2.3.2"></script>		
+		<script>
+			new Vue({
+				el: '#root',
+				data: {
+					message: 'Hello World',
+					tasks: [
+						{description: 'Go to the store', completed: true },
+						{description: 'Finish screencast', completed: false },
+						{description: 'Make a donation', completed: false },
+						{description: 'Clear inbox', completed: false },
+						{description: 'Make dinner', completed: false },
+						{description: 'Clean room', completed: true }
+					]
+				},
+				computed: {
+					reverseMesssage() {
+						return this.message.split('').reverse().join('');
+
+					},
+					incompleteTasks() {
+						return this.tasks.filter(task => !task.completed);
+					},
+					completeTasks() {
+						return this.tasks.filter(task => task.completed);
+					}
+				} 
+			});
+		</script>
+	</body>
+</html>

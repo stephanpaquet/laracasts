@@ -4,7 +4,7 @@ In the previous episode, we defaulted to traditional event listeners and DOM tra
 
 
 ```
-v-on:click
+v-on:click=""
 
 est équivalent à 
 

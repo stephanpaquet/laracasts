@@ -4,6 +4,9 @@ We haven't yet reviewed attribute binding in Vue. This is a key concept to under
 
 
 ```
+:class="className"
+
+:class="{'is-loading': isLoading}"
 
 
 ```
