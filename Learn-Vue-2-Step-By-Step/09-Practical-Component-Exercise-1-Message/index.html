@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css">
+
+		<style>
+			body {
+				padding-top: 2em;
+			}
+			.close {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="root" class="container">
+			<message title="Hello World" body="Lorem ipsum dolor sit amet"></message>
+			<message title="Hello Universe" body="Super bla bla bla"></message>
+						
+			<hr>
+			<pre>{{ $data }}</pre>
+		</div>
+
+		<script src="https://unpkg.com/vue@2.3.2"></script>	
+		<script src="main.js"></script>	
+
+	</body>
+</html>

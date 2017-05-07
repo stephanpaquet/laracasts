@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css">
+
+		<style>
+			body {
+				padding-top: 2em;
+			}
+			.close {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="root" class="container">
+			<modal v-if="showModal" @close="showModal = false">
+				<p>
+		    		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ullamcorper neque quis elementum sollicitudin. Mauris consectetur consectetur lectus eget iaculis	
+		    	</p>
+			</modal>
+			<button class="button" @click="showModal = true">Open Modal</button>
+						
+			<hr>
+			<pre>{{ $data }}</pre>
+		</div>
+
+		<script src="https://unpkg.com/vue@2.3.2"></script>	
+		<script src="main.js"></script>	
+
+	</body>
+</html>
