@@ -6,6 +6,7 @@ cd forum
 php artisan serve
 ```
 
+# Forum
 1. Thread
 2. Reply to a thread
 3. User
@@ -15,7 +16,11 @@ B. A reply is blongs to a thread, and belongs to a user.
 
 
 ```php
+
+# Model et resource
 php artisan make:model Thread -mr
+
+# Migration Controller
 php artisan make:model Reply -mc
 
 
