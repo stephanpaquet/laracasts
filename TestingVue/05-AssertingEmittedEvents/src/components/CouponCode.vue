@@ -4,6 +4,9 @@
         <p v-if="valid">
             Coupon Redeemed: {{ message }}
         </p>
+        <p v-else>
+            Invalid coupon code
+        </p>
     </div>
 </template>
 
@@ -14,9 +17,9 @@
                 code: '',
                 coupons: [
                     {
-                        code: '50OFF',
-                        message: '50% Off!',
-                        discount: 50
+                        code: '10OFF',
+                        message: '10% Off!',
+                        discount: 10
                     },
                     {
                         code: 'FREE',
@@ -29,14 +32,21 @@
             }
         },
         computed: {
+            selectedCoupon () {
+                return this.coupons.find(coupon => coupon.code === this.code);
+            },
             message () {
-                return this.coupons.find(coupon => coupon.code === this.code).message;
+                return this.selectedCoupon.message;
             }
         },
         methods: {
             validate () {
-                this.valid = this.coupons.map(coupon => coupon.code).includes(this.code)
-                console.log(this.valid);
+                //this.valid = this.coupons.map(coupon => coupon.code).includes(this.code);
+                this.valid = !! this.selectedCoupon;
+
+                if (this.valid) {
+                    this.$emit('applied', this.selectedCoupon.discount);
+                }
             }
         }
     }
