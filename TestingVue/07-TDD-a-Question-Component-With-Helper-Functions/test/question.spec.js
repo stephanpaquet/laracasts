@@ -33,6 +33,7 @@ describe ('Question', () => {
     });
 
     it ('hide edit button in edit mode', () => {
+        expect(wrapper.contains('#edit')).toBe(true);
 
         click('#edit');
 
@@ -59,7 +60,6 @@ describe ('Question', () => {
         click('#cancel');
 
         see('The title');
-
     });
 
     let see = (text, selector) => {

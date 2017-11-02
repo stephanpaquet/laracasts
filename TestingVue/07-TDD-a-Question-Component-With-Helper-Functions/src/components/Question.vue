@@ -49,6 +49,8 @@
                 this.editing = true;
             },
             update () {
+                this.question = this.form;
+
                 this.editing = false;
             },
             cancel () {
