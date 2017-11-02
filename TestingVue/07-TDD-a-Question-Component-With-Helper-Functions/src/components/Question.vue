@@ -14,26 +14,47 @@
 
         <!-- editing the question -->
         <div v-if="editing">
-            <input type="text" name="title" v-model="question.title">
-            <textarea name="body" cols="30" rows="10" v-model="question.body">
+            <input type="text" name="title" v-model="form.title">
+            <textarea name="body" cols="30" rows="10" v-model="form.body">
                 {{ question.body }}
             </textarea>
+
+            <button id="cancel" @click="cancel">
+                Cancel
+            </button>
+
+            <button id="update" @click="update">
+                Update
+            </button>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['question'],
+        props: ['dataQuestion'],
 
         data () {
             return {
-                editing: false
+                question: this.dataQuestion,
+                editing: false,
+                form: {
+                    title: this.dataQuestion.title,
+                    body: this.dataQuestion.body
+                }
             };
         },
         methods: {
             edit () {
                 this.editing = true;
+            },
+            update () {
+                this.editing = false;
+            },
+            cancel () {
+                this.editing = false;
+
+                //this.question = this.da
             }
         }
     }

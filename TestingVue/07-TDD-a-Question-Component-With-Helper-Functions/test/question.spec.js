@@ -8,7 +8,7 @@ describe ('Question', () => {
     beforeEach(() => {
         wrapper = mount(Question, {
             propsData: {
-                question: {
+                dataQuestion: {
                     title: 'The title',
                     body: 'The body'
                 }
@@ -25,7 +25,7 @@ describe ('Question', () => {
     it ('can be edited', () => {
         expect(wrapper.contains('input[name=title]')).toBe(false);
 
-        wrapper.find('#edit').trigger('click');
+        click('#edit');
 
         expect(wrapper.find('input[name=title]').element.value).toBe('The title');
         expect(wrapper.find('textarea[name=body]').element.value).toBe('The body');
@@ -34,18 +34,32 @@ describe ('Question', () => {
 
     it ('hide edit button in edit mode', () => {
 
-        wrapper.find('#edit').trigger('click');
+        click('#edit');
 
         expect(wrapper.contains('#edit')).toBe(false);
     });
 
     it ('update question after editing', () => {
-        wrapper.find('#edit').trigger('click');
+        click('#edit');
+
+        type('input[name=title]', 'Changed title');
+        type('textarea[name=body]', 'Changed body');
+
+        click('#update');
+
+        see('Changed title');
+        see('Changed body');
+    });
+
+    it ('can cancel out of edit mode', () => {
+        click('#edit');
 
         type('input[name=title]', 'Changed title');
 
-        wrapper.find('textarea[name=body]').element.value = 'Changed body';
-        wrapper.find('textarea[name=body]').trigger('input');
+        click('#cancel');
+
+        see('The title');
+
     });
 
     let see = (text, selector) => {
@@ -55,41 +69,15 @@ describe ('Question', () => {
     };
 
     let type = (selector, text) => {
-        wrapper.find(selector).element.value = text;
-        wrapper.find(selector).trigger('input');
+        let node = wrapper.find(selector);
+
+        node.element.value = text;
+        node.trigger('input');
     };
 
-    //
-    // it ('can add reminders', () => {
-    //     addReminder('Go to the store');
-    //     expect(remindersList()).toContain('Go to the store');
-    // });
-    //
-    // it ('can remove any reminder', () => {
-    //     addReminder('Go to the store');
-    //     addReminder('Finish screencast');
-    //
-    //     let deleteButton = wrapper.find('ul > li:first-child .remove');
-    //     deleteButton.trigger('click');
-    //
-    //     expect(remindersList()).not.toContain('Go to the store');
-    //     expect(remindersList()).toContain('Finish screencast');
-    // });
-    //
-    // function addReminder(body) {
-    //     let newReminder = wrapper.find('.new-reminder');
-    //
-    //     newReminder.element.value = body;
-    //
-    //     newReminder.trigger('input');
-    //
-    //     wrapper.find('button').trigger('click');
-    // };
-    //
-    // function remindersList() {
-    //     return wrapper.find('ul').text();
-    // }
-
+    let click = (selector) => {
+        wrapper.find(selector).trigger('click');
+    };
 });
 
 
